@@ -197,7 +197,24 @@ main section .txtbox a::after {
     display: none;
   }
   nav .links a {
+    position: relative;
     color: white;
+  }
+  nav .links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: .1em;
+    background-color: white;
+    bottom: -1em;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    -webkit-transition: width .2s;
+    transition: width .2s;
+  }
+  nav .links a:hover::after {
+    width: 1.5em;
   }
   main header {
     height: 50%;
@@ -211,6 +228,25 @@ main section .txtbox a::after {
   main header .img-container .images img {
     -o-object-fit: cover;
        object-fit: cover;
+  }
+  main header .arrows .arrow {
+    -webkit-transition: background-color .2s;
+    transition: background-color .2s;
+  }
+  main header .arrows .arrow:hover {
+    background-color: #454545;
+  }
+  main section a {
+    -webkit-transition: color .2s;
+    transition: color .2s;
+  }
+  main section a:hover {
+    color: #a1a1a1;
+  }
+  main section a:hover::after {
+    -webkit-transition: opacity .2s;
+    transition: opacity .2s;
+    opacity: .5;
   }
 }
 

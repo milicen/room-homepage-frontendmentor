@@ -195,7 +195,24 @@ main {
             }
 
             a {
+                position: relative;
                 color: $white;
+            }
+
+            a::after {
+                content: '';
+                position: absolute;
+                width: 0;
+                height: .1em;
+                background-color: $white;
+                bottom: -1em;
+                left: 50%;
+                transform: translateX(-50%);
+                transition: width .2s;
+            }
+
+            a:hover::after {
+                width: 1.5em;
             }
         }
     }
@@ -215,7 +232,28 @@ main {
                     }
                 }
             }
+
+            .arrows .arrow {
+                transition: background-color .2s;
+            }
+
+            .arrows .arrow:hover {
+                background-color: $very-dark-gray;
+            }
             
+        }
+
+        section a {
+            transition: color .2s;
+        }
+
+        section a:hover {
+            color: $dark-gray;
+        }
+
+        section a:hover::after {
+            transition: opacity .2s;
+            opacity: .5;
         }
     }
 

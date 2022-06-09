@@ -38,7 +38,7 @@
     <main>
         <header>
             <div class="img-container">
-                <div class="images">
+                <div id="slide" class="images">
                     <img src="../images/mobile-image-hero-1.jpg">
                     <img src="../images/mobile-image-hero-2.jpg">
                     <img src="../images/mobile-image-hero-3.jpg">
@@ -46,10 +46,10 @@
                 
             </div>
             <div class="arrows">
-                <button class="arrow">
+                <button id="left-button" class="arrow">
                     <svg width="14" height="24" xmlns="http://www.w3.org/2000/svg"><path d="M13 0L1 12l12 12" stroke="#FFF" fill="none" fill-rule="evenodd"/></svg>
                 </button>
-                <button class="arrow">
+                <button id="right-button" class="arrow">
                     <svg width="14" height="24" xmlns="http://www.w3.org/2000/svg"><path d="M1 0l12 12L1 24" stroke="#FFF" fill="none" fill-rule="evenodd"/></svg>
                 </button>
                 
@@ -82,6 +82,8 @@
 </body>
 
 <script>
+let currentSlide = 1
+
 $(window).resize(
     function() {
         let width = $(window).width()
@@ -118,6 +120,46 @@ $('#menu-close').focus(
         $('#menu-close').blur()
     }
 )
+
+$('#left-button').focus(
+    function() {
+        if (currentSlide <= 1) {
+            return
+        }
+        currentSlide--
+        let width = $('header').css('width')
+        let value = $('#slide').css('left')
+        let pattern = /(\d+)/
+        let widthNum = Number(width.match(pattern)[0]) 
+        let valueNum = Number(value.match(pattern)[0]) 
+        
+        $('#slide').css('left', `${-valueNum + widthNum}px`)
+        $('#left-button').blur()
+
+        console.log(valueNum + widthNum)
+    }
+)
+
+$('#right-button').focus(
+    function() {
+        if (currentSlide >= 3) {
+            return
+        }
+        currentSlide++
+        let width = $('header').css('width')
+        let value = $('#slide').css('left')
+        let pattern = /(\d+)/
+        let widthNum = Number(width.match(pattern)[0]) 
+        let valueNum = Number(value.match(pattern)[0]) 
+        
+        $('#slide').css('left', `${-valueNum - widthNum}px`)
+        $('#right-button').blur()
+
+        console.log(valueNum - widthNum)
+        console.log(widthNum, valueNum)
+    }
+)
+
 </script>
 
 </html>

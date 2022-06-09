@@ -1,0 +1,123 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room - Home</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;600;700&display=swap" rel="stylesheet"> 
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav>
+        <a href="#" class="logo">
+            <img src="../images/logo.svg" alt="">
+        </a>
+        <button id="menu-button">
+            <svg width="20" height="14" xmlns="http://www.w3.org/2000/svg"><path d="M20 12v2H0v-2h20zm0-6v2H0V6h20zm0-6v2H0V0h20z" fill="#FFF" fill-rule="evenodd"/></svg>
+        </button>
+        <div class="overlay"></div>
+        <ul class="links">
+            <li>
+                <button id="menu-close">
+                    <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M14.364.222l1.414 1.414L9.414 8l6.364 6.364-1.414 1.414L8 9.414l-6.364 6.364-1.414-1.414L6.586 8 .222 1.636 1.636.222 8 6.586 14.364.222z" fill="#000" fill-rule="evenodd" opacity=".201"/></svg>
+                </button>
+            </li>
+            <li><a href="#">home</a></li>
+            <li><a href="#">shop</a></li>
+            <li><a href="#">about</a></li>
+            <li><a href="#">contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <header>
+            <div class="img-container">
+                <div class="images">
+                    <img src="../images/mobile-image-hero-1.jpg">
+                    <img src="../images/mobile-image-hero-2.jpg">
+                    <img src="../images/mobile-image-hero-3.jpg">
+                </div>
+                
+            </div>
+            <div class="arrows">
+                <button class="arrow">
+                    <svg width="14" height="24" xmlns="http://www.w3.org/2000/svg"><path d="M13 0L1 12l12 12" stroke="#FFF" fill="none" fill-rule="evenodd"/></svg>
+                </button>
+                <button class="arrow">
+                    <svg width="14" height="24" xmlns="http://www.w3.org/2000/svg"><path d="M1 0l12 12L1 24" stroke="#FFF" fill="none" fill-rule="evenodd"/></svg>
+                </button>
+                
+            </div>
+        </header>
+
+        <section>
+            <div class="txtbox">
+                <h1>Discover innovative ways to decorate</h1>
+                <p>We provide unmatched quality, comfort, and style for property owners across the country. Our experts combine form and function in bringing your vision to life. Create a room in your own style with our collection and make your property a reflection of you and what you love.</p>
+                <a href="#">Shop now</a>
+            </div>
+        </section>
+
+        <section>
+            <img src="../images/image-about-dark.jpg">
+        </section>
+
+        <section>
+            <div class="txtbox">
+                <h3>About our furniture</h3>
+                <p>Out multifunctional collection blends design and function to suit your individual taste. Make each room unique, or pick a cohesive theme that best express your interests and what inspires you. Find the furniture pieces you need, from traditional to contemporary styles or anything in between. Product specialists are available to help you create your dream space.</p>
+            </div>
+        </section>
+
+        <section>
+            <img src="../images/image-about-light.jpg">
+        </section>
+    </main>
+</body>
+
+<script>
+$(window).resize(
+    function() {
+        let width = $(window).width()
+
+        if(width >= 500) {
+            $('#menu-button').blur()
+            $('#menu-close').blur()
+            $('nav .links').css('display', 'flex')
+            $('nav .overlay').css('display', 'none')
+            $('#menu-button').css('display', 'none')
+            $('#menu-close').css('display', 'none')
+        }
+        else {
+            $('nav .links').css('display', 'none')
+            $('nav .overlay').css('display', 'none')
+            $('#menu-button').css('display', 'block')
+            $('#menu-close').css('display', 'block')
+        }
+    }
+)
+
+$('#menu-button').focus(
+    function() {
+        $('nav .links').css('display', 'flex')
+        $('nav .overlay').css('display', 'block')
+    }
+)
+
+$('#menu-close').focus(
+    function() {
+        $('nav .links').css('display', 'none')
+        $('nav .overlay').css('display', 'none')
+        $('#menu-button').blur()
+        $('#menu-close').blur()
+    }
+)
+</script>
+
+</html>
